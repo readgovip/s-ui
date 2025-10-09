@@ -37,7 +37,7 @@
 ## Install & Upgrade to Latest Version
 
 ```sh
-bash <(curl -Ls https://raw.githubusercontent.com/alireza0/s-ui/master/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/readgovip/s-ui/master/install.sh)
 ```
 
 ## Install legacy Version
