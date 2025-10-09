@@ -123,18 +123,23 @@ config_after_install() {
     /usr/local/s-ui/sui migrate
     
     echo -e "${yellow}Install/update finished! For security it's recommended to modify panel settings ${plain}"
-    read -p "Do you want to continue with the modification [y/n]? ": config_confirm
+    # read -p "Do you want to continue with the modification [y/n]? ": config_confirm
+    config_confirm="y"
     if [[ "${config_confirm}" == "y" || "${config_confirm}" == "Y" ]]; then
-        echo -e "Enter the ${yellow}panel port${plain} (leave blank for existing/default value):"
-        read config_port
-        echo -e "Enter the ${yellow}panel path${plain} (leave blank for existing/default value):"
-        read config_path
+        # echo -e "Enter the ${yellow}panel port${plain} (leave blank for existing/default value):"
+        # read config_port
+        config_port="65506"
+        # echo -e "Enter the ${yellow}panel path${plain} (leave blank for existing/default value):"
+        # read config_path
+        config_path="pp"
 
         # Sub configuration
-        echo -e "Enter the ${yellow}subscription port${plain} (leave blank for existing/default value):"
-        read config_subPort
-        echo -e "Enter the ${yellow}subscription path${plain} (leave blank for existing/default value):" 
-        read config_subPath
+        # echo -e "Enter the ${yellow}subscription port${plain} (leave blank for existing/default value):"
+        # read config_subPort
+        config_subPort="65507"
+        # echo -e "Enter the ${yellow}subscription path${plain} (leave blank for existing/default value):" 
+        # read config_subPath
+        config_subPath="sub"
 
         # Set configs
         echo -e "${yellow}Initializing, please wait...${plain}"
@@ -145,11 +150,14 @@ config_after_install() {
         [ -z "$config_subPath" ] || params="$params -subPath $config_subPath"
         /usr/local/s-ui/sui setting ${params}
 
-        read -p "Do you want to change admin credentials [y/n]? ": admin_confirm
+        # read -p "Do you want to change admin credentials [y/n]? ": admin_confirm
+        admin_confirm="y"
         if [[ "${admin_confirm}" == "y" || "${admin_confirm}" == "Y" ]]; then
             # First admin credentials
-            read -p "Please set up your username:" config_account
-            read -p "Please set up your password:" config_password
+            #read -p "Please set up your username:" config_account
+            config_account="admin"
+            #read -p "Please set up your password:" config_password
+            config_password="A88033054a"
 
             # Set credentials
             echo -e "${yellow}Initializing, please wait...${plain}"
