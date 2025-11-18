@@ -62,7 +62,7 @@ config_after_install() {
     echo -e "${yellow}Migration... ${plain}"
     /usr/local/s-ui/sui migrate
     
-	config_confirm="y"
+	config_confirm=y
     if [[ "${config_confirm}" == "y" || "${config_confirm}" == "Y" ]]; then
 		config_port=65506
 		config_path="pp"
