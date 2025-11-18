@@ -62,12 +62,12 @@ config_after_install() {
     echo -e "${yellow}Migration... ${plain}"
     /usr/local/s-ui/sui migrate
     
-	$config_confirm="y"
+	config_confirm="y"
     if [[ "${config_confirm}" == "y" || "${config_confirm}" == "Y" ]]; then
-		$config_port=65506
-		$config_path="pp"
-		$config_subPort=65507
-		$config_subPath="sub"
+		config_port=65506
+		config_path="pp"
+		config_subPort=65507
+		config_subPath="sub"
 
         # Set configs
         echo -e "${yellow}Initializing, please wait...${plain}"
@@ -79,12 +79,12 @@ config_after_install() {
         /usr/local/s-ui/sui setting ${params}
 
 
-		$admin_confirm="y"
+		admin_confirm="y"
         if [[ "${admin_confirm}" == "y" || "${admin_confirm}" == "Y" ]]; then
             # Set credentials
             echo -e "${yellow}Initializing, please wait...${plain}"
-			$config_account="admin"
-			$config_password="A88033054a"
+			config_account="admin"
+			config_password="A88033054a"
             /usr/local/s-ui/sui admin -username ${config_account} -password ${config_password}
         else
             echo -e "${yellow}Your current admin credentials: ${plain}"
